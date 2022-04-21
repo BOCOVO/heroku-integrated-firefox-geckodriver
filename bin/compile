@@ -139,8 +139,8 @@ done
 mkdir -p $BUILD_DIR/.apt
 
 for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
-  if [[ $(basename $DEB) == "google-chrome-stable_current_amd64.deb" ]]; then
-    topic "Avoid google-chrome-stable_current_amd64.deb installing"
+  if [ $(basename $DEB) == "google-chrome-stable_current_amd64.deb" -o $(basename $DEB) == "google-chrome-stable_99.0.4844.51-1_amd64.deb" ] ; then
+    topic "Avoid installing unsed package"
   else
     topic "Installing $(basename $DEB)"
     dpkg -x $DEB $BUILD_DIR/.apt/
