@@ -138,7 +138,6 @@ done
 
 mkdir -p $BUILD_DIR/.apt
 
-: '
 for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   if [[ $(basename $DEB) == "google-chrome-stable_current_amd64.deb" ]]; then
     topic "Avoid google-chrome-stable_current_amd64.deb installing"
@@ -147,7 +146,6 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
     dpkg -x $DEB $BUILD_DIR/.apt/
   fi
 done
-'
 
 # Install Firefox
 mkdir -p $CACHE_DIR
